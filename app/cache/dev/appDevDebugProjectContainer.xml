@@ -16,8 +16,8 @@
       <parameter key="AsseticBundle">Symfony\Bundle\AsseticBundle\AsseticBundle</parameter>
       <parameter key="DoctrineBundle">Doctrine\Bundle\DoctrineBundle\DoctrineBundle</parameter>
       <parameter key="SensioFrameworkExtraBundle">Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle</parameter>
-      <parameter key="coachingBundle">coaching\siteBundle\coachingBundle</parameter>
       <parameter key="FOSUserBundle">FOS\UserBundle\FOSUserBundle</parameter>
+      <parameter key="coachingBundle">coaching\siteBundle\coachingBundle</parameter>
       <parameter key="AcmeDemoBundle">Acme\DemoBundle\AcmeDemoBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
@@ -1733,7 +1733,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>530b4852e24a3</argument>
+            <argument>530b4be1148dc</argument>
           </service>
         </argument>
       </argument>
@@ -2123,7 +2123,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>530b4852e24a3</argument>
+            <argument>530b4be1148dc</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
           </service>
         </argument>
@@ -2509,8 +2509,8 @@
         <service class="Doctrine\ORM\Configuration" public="false">
           <call method="setEntityNamespaces">
             <argument type="collection">
-              <argument key="coachingBundle">coaching\siteBundle\Entity</argument>
               <argument key="FOSUserBundle">FOS\UserBundle\Entity</argument>
+              <argument key="coachingBundle">coaching\siteBundle\Entity</argument>
             </argument>
           </call>
           <call method="setMetadataCacheImpl">
@@ -2545,16 +2545,6 @@
               <service class="Doctrine\ORM\Mapping\Driver\DriverChain" public="false">
                 <call method="addDriver">
                   <argument type="service">
-                    <service class="Doctrine\ORM\Mapping\Driver\PHPDriver" public="false">
-                      <argument type="collection">
-                        <argument>/var/www/coaching/src/coaching/siteBundle/Resources/config/doctrine</argument>
-                      </argument>
-                    </service>
-                  </argument>
-                  <argument>coaching\siteBundle\Entity</argument>
-                </call>
-                <call method="addDriver">
-                  <argument type="service">
                     <service class="Doctrine\ORM\Mapping\Driver\SimplifiedXmlDriver" public="false">
                       <argument type="collection">
                         <argument key="/var/www/coaching/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/config/doctrine">FOS\UserBundle\Entity</argument>
@@ -2565,6 +2555,16 @@
                     </service>
                   </argument>
                   <argument>FOS\UserBundle\Entity</argument>
+                </call>
+                <call method="addDriver">
+                  <argument type="service">
+                    <service class="Doctrine\ORM\Mapping\Driver\PHPDriver" public="false">
+                      <argument type="collection">
+                        <argument>/var/www/coaching/src/coaching/siteBundle/Resources/config/doctrine</argument>
+                      </argument>
+                    </service>
+                  </argument>
+                  <argument>coaching\siteBundle\Entity</argument>
                 </call>
                 <call method="addDriver">
                   <argument type="service">
@@ -3051,12 +3051,12 @@
         <argument>Doctrine</argument>
       </call>
       <call method="addPath">
-        <argument>/var/www/coaching/src/coaching/siteBundle/Resources/views</argument>
-        <argument>coaching</argument>
-      </call>
-      <call method="addPath">
         <argument>/var/www/coaching/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/views</argument>
         <argument>FOSUser</argument>
+      </call>
+      <call method="addPath">
+        <argument>/var/www/coaching/src/coaching/siteBundle/Resources/views</argument>
+        <argument>coaching</argument>
       </call>
       <call method="addPath">
         <argument>/var/www/coaching/src/Acme/DemoBundle/Resources/views</argument>
