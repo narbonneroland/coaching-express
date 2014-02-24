@@ -1,0 +1,7 @@
+parameters:
+#    coaching.example.class: coaching\siteBundle\Example
+
+services:
+#    coaching.example:
+#        class: %coaching.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
