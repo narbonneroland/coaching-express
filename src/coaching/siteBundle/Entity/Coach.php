@@ -20,6 +20,12 @@ class Coach
     */
     private $user_id;
 
+    /**
+   * @ORM\ManyToMany(targetEntity="coaching\siteBundle\Entity\Training")
+   * @ORM\JoinColumn(nullable=false)
+   */
+    private $training;
+
 
     /**
      * @var integer

@@ -25,6 +25,12 @@ class Sportif
     */
     private $training;
 
+     /**
+    * @ORM\OneToOne(targetEntity="coaching\siteBundle\Entity\Coach")
+    * @ORM\JoinColumn(nullable=false)
+    */
+    private $coach;
+
     /**
      * @var integer
      *

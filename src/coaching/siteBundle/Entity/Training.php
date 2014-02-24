@@ -12,6 +12,16 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Training
 {
+
+    /**
+   * @ORM\ManyToMany(targetEntity="coaching\siteBundle\Entity\Coach")
+   * @ORM\JoinColumn(nullable=false)
+   */
+    private $coach;
+
+
+
+
     /**
      * @var integer
      *
