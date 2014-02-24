@@ -2,7 +2,6 @@
 
 namespace coaching\siteBundle\Entity;
 
-use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -11,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="coaching\siteBundle\Entity\UserRepository")
  */
-class User extends BaseUser
+class User
 {
     /**
      * @var integer
@@ -20,13 +19,15 @@ class User extends BaseUser
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    protected $id;
+    private $id;
 
-    public function __construct()
-    {
-        parent::__construct();
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="username", type="string", length=255)
+     */
+    private $username;
 
-    }
 
     /**
      * Get id
@@ -36,5 +37,28 @@ class User extends BaseUser
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set username
+     *
+     * @param string $username
+     * @return User
+     */
+    public function setUsername($username)
+    {
+        $this->username = $username;
+
+        return $this;
+    }
+
+    /**
+     * Get username
+     *
+     * @return string 
+     */
+    public function getUsername()
+    {
+        return $this->username;
     }
 }
