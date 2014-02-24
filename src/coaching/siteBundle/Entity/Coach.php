@@ -18,7 +18,7 @@ class Coach
     * @ORM\OneToOne(targetEntity="coaching\siteBundle\Entity\User")
     * @ORM\JoinColumn(nullable=false)
     */
-    private $user_id;
+    private $user;
 
     /**
    * @ORM\ManyToMany(targetEntity="coaching\siteBundle\Entity\Training")

@@ -21,13 +21,13 @@ class Sportif
 
     /**
     * @ORM\OneToOne(targetEntity="coaching\siteBundle\Entity\Training")
-    * @ORM\JoinColumn(nullable=false)
+    * @ORM\JoinColumn(nullable=true)
     */
     private $training;
 
      /**
     * @ORM\OneToOne(targetEntity="coaching\siteBundle\Entity\Coach")
-    * @ORM\JoinColumn(nullable=false)
+    * @ORM\JoinColumn(nullable=true)
     */
     private $coach;
 
