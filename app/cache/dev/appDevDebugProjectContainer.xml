@@ -1733,11 +1733,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-<<<<<<< HEAD
-            <argument>530b51fc98849</argument>
-=======
-            <argument>530b51a78d390</argument>
->>>>>>> 4d1959bb08ad3eb5babfdfe5dae78cc55cfca8b0
+            <argument>530b555774caf</argument>
           </service>
         </argument>
       </argument>
@@ -2127,11 +2123,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-<<<<<<< HEAD
-            <argument>530b51fc98849</argument>
-=======
-            <argument>530b51a78d390</argument>
->>>>>>> 4d1959bb08ad3eb5babfdfe5dae78cc55cfca8b0
+            <argument>530b555774caf</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
           </service>
         </argument>
@@ -2553,16 +2545,9 @@
               <service class="Doctrine\ORM\Mapping\Driver\DriverChain" public="false">
                 <call method="addDriver">
                   <argument type="service">
-<<<<<<< HEAD
-                    <service class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
-                      <argument type="service" id="annotation_reader"/>
-                      <argument type="collection">
-                        <argument>/home/wa48/sites/coaching/src/coaching/siteBundle/Entity</argument>
-=======
                     <service class="Doctrine\ORM\Mapping\Driver\SimplifiedXmlDriver" public="false">
                       <argument type="collection">
-                        <argument key="/var/www/coaching/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/config/doctrine">FOS\UserBundle\Entity</argument>
->>>>>>> 4d1959bb08ad3eb5babfdfe5dae78cc55cfca8b0
+                        <argument key="/home/wa48/sites/coaching/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/config/doctrine">FOS\UserBundle\Entity</argument>
                       </argument>
                       <call method="setGlobalBasename">
                         <argument>mapping</argument>
@@ -2576,11 +2561,7 @@
                     <service class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
                       <argument type="service" id="annotation_reader"/>
                       <argument type="collection">
-<<<<<<< HEAD
-                        <argument key="/home/wa48/sites/coaching/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/config/doctrine">FOS\UserBundle\Entity</argument>
-=======
-                        <argument>/var/www/coaching/src/coaching/siteBundle/Entity</argument>
->>>>>>> 4d1959bb08ad3eb5babfdfe5dae78cc55cfca8b0
+                        <argument>/home/wa48/sites/coaching/src/coaching/siteBundle/Entity</argument>
                       </argument>
                     </service>
                   </argument>
@@ -3071,27 +3052,15 @@
         <argument>Doctrine</argument>
       </call>
       <call method="addPath">
-<<<<<<< HEAD
-        <argument>/home/wa48/sites/coaching/src/coaching/siteBundle/Resources/views</argument>
-        <argument>coaching</argument>
-      </call>
-      <call method="addPath">
         <argument>/home/wa48/sites/coaching/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/views</argument>
         <argument>FOSUser</argument>
       </call>
       <call method="addPath">
-        <argument>/home/wa48/sites/coaching/src/Acme/DemoBundle/Resources/views</argument>
-=======
-        <argument>/var/www/coaching/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/views</argument>
-        <argument>FOSUser</argument>
-      </call>
-      <call method="addPath">
-        <argument>/var/www/coaching/src/coaching/siteBundle/Resources/views</argument>
+        <argument>/home/wa48/sites/coaching/src/coaching/siteBundle/Resources/views</argument>
         <argument>coaching</argument>
       </call>
       <call method="addPath">
-        <argument>/var/www/coaching/src/Acme/DemoBundle/Resources/views</argument>
->>>>>>> 4d1959bb08ad3eb5babfdfe5dae78cc55cfca8b0
+        <argument>/home/wa48/sites/coaching/src/Acme/DemoBundle/Resources/views</argument>
         <argument>AcmeDemo</argument>
       </call>
       <call method="addPath">
