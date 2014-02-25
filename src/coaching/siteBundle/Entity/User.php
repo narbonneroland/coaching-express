@@ -22,6 +22,20 @@ class User extends BaseUser
      */
     protected $id;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom", type="string", length=128)
+     */
+    private $nom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prenom", type="string", length=128)
+     */
+    private $prenom;
+
 public function __construct()
     {
         parent::__construct();
@@ -36,5 +50,49 @@ public function __construct()
     public function getId()
     {
         return $this->id;
-    }    
+    }
+    
+    /**
+     * Set nom
+     *
+     * @return string $nom
+     * @return User 
+     */
+    public function setNom()
+    {
+        return $this->nom;
+    }
+    /**
+     * Get nom
+     *
+     * @return string 
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+
+    /**
+     * Set prenom
+     *
+     * @return string $prenom
+     * @return User 
+     */
+    public function setPrenom()
+    {
+        return $this->prenom;
+    }
+
+    /**
+     * Get prenom
+     *
+     * @return string 
+     */
+    public function getPrenom()
+    {
+        return $this->prenom;
+    }
+   
+
 }
