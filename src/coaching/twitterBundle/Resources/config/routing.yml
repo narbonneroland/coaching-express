@@ -1,0 +1,7 @@
+twitter_homepage:
+    pattern:  /twitter
+    defaults: { _controller: coachingtwitterBundle:Twitter:index }
+
+twitter_add:
+    pattern:  /twitter/add
+    defaults: { _controller: coachingtwitterBundle:Twitter:add }
