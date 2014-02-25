@@ -38,7 +38,7 @@ class CoachingController extends Controller
     		->add('taille','integer')
     		->add('poids','number')
     		->add('sexe','choice', array('choices' =>array('0'=>'Masculin','1'=>'Féminin'),'expanded' => 'true','data' => 0))
-    		->add('date_naissance','date')
+    		->add('date_naissance','date',array('format'=>'d/M/y'))
     		->add('niveau','text');
 
     	$form = $formBuilder->getForm();

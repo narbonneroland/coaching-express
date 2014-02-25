@@ -1,17 +1,45 @@
-<form  method="post" {{ form_enctype(form) }}>
-	<div class="info_sportif">
-	{{ form_label(form.taille, "Taille")}}
-	{{ form_widget(form.taille)}}
-	{{ form_label(form.poids, "Poids")}}
-	{{ form_widget(form.poids)}}
-	{{ form_label(form.sexe, "Sexe")}}
-	{{ form_widget(form.sexe)}}
-	{{ form_label(form.date_naissance, "Date de Naissance")}}
-	{{ form_widget(form.date_naissance)}}
-	{{ form_label(form.niveau, "Niveau")}}
-	{{ form_widget(form.niveau)}}
-	</div>
+<html>
+{% block stylesheets %}
+<link href='http://fonts.googleapis.com/css?family=Faster+One' rel='stylesheet' type='text/css'>
 
-	{{ form_widget(form) }}
-	<button type="submit">Envoyer</button>
-</form>
+<link rel="stylesheet" href="
+	{{asset("bundles/coaching/css/style.css")}}" type="text/css" />
+
+{% endblock %}	
+<script src="{{asset('bundles/coaching/script/script.js')}}"></script>
+<body>
+	<div id="page">
+	<h1>COACHING EXPRESS</h1>
+	<form  method="post" {{ form_enctype(form) }}>
+		<div class="info_sportif">
+			<div class="physique">
+				{{ form_label(form.taille, "Taille")}}
+				{{ form_widget(form.taille)}}
+				{{ form_label(form.taille, "cm")}}
+				{{ form_label(form.poids, "Poids")}}
+				{{ form_widget(form.poids)}}
+				{{ form_label(form.poids, "kg")}}
+			</div>
+			<div class="sexe">
+				{{ form_label(form.sexe, "Sexe")}}
+				{{ form_widget(form.sexe)}}
+			</div>
+			<div class="naissance">
+				{{ form_label(form.date_naissance, "Date de Naissance")}}
+				{{ form_widget(form.date_naissance)}}
+			</div>
+			<div class="niveau">
+				{{ form_label(form.niveau, "Niveau")}}
+				{{ form_widget(form.niveau)}}
+			
+
+			{{ form_widget(form) }}
+			<button type="submit">Envoyer</button>
+			</div>
+		</div>
+	</form>
+	<div class="navigation">
+	<a href="{{path('accueil')}}">Retour</a>
+</div>
+</div>
+</body>

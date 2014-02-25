@@ -1,7 +1,10 @@
 <html>
 {% block stylesheets %}
+<link href='http://fonts.googleapis.com/css?family=Faster+One' rel='stylesheet' type='text/css'>
+
 <link rel="stylesheet" href="
 	{{asset("bundles/coaching/css/style.css")}}" type="text/css" />
+
 {% endblock %}	
 <script src="{{asset('bundles/coaching/script/script.js')}}"></script>
 <body>
@@ -10,12 +13,23 @@
 
 	<section id="espace_sportif">
 		<a class="titre" href="{{path('sportif')}}">Espace Sportif</a>
-		<div id="bas">
+		<div class="bas">
 			<a class="titre" href="{{path( 'fos_user_registration_register') }}">Inscription Sportif</a>
+			<a class="titre" href="{{path( 'fos_user_registration_register') }}">Connexion</a>
 		</div>
 	</section>
 	<section id="espace_coach">
 		<a class="titre" href="{{path('coach')}}">Espace Coach</a>
+		<div class="bas">
+			<a class="titre" href="{{path( 'fos_user_registration_register') }}">Inscription Coach</a>
+			<a class="titre" href="{{path( 'fos_user_registration_register') }}">Connexion</a>
+		</div>
+	</section>
+	<section id="boutique">
+		<a class="titre" href="#">Boutique</a>
+	</section>
+	<section id="forum">
+		<a class="titre" href="#">Forum</a>
 	</section>
 	</div>
 </body>
