@@ -200,4 +200,11 @@ class Sportif
     {
         return $this->niveau;
     }
+
+    public function setUser($id)
+    {
+        $this->user=$id;
+        return $this;
+    }
+    
 }

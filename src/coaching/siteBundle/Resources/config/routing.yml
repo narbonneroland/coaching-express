@@ -1,3 +1,12 @@
 coaching_homepage:
     pattern:  /hello/{name}
     defaults: { _controller: coachingBundle:Coaching:index }
+accueil:
+    pattern: /
+    defaults: { _controller: coachingBundle:Coaching:accueil }
+sportif:
+    pattern: /sportif
+    defaults: { _controller: coachingBundle:Coaching:sportif }
+coach:
+    pattern: /coach
+    defaults: { _controller: coachingBundle:Coaching:coach }
