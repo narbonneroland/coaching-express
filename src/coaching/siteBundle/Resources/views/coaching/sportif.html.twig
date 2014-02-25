@@ -1,0 +1,17 @@
+<form  method="post" {{ form_enctype(form) }}>
+	<div class="info_sportif">
+	{{ form_label(form.taille, "Taille")}}
+	{{ form_widget(form.taille)}}
+	{{ form_label(form.poids, "Poids")}}
+	{{ form_widget(form.poids)}}
+	{{ form_label(form.sexe, "Sexe")}}
+	{{ form_widget(form.sexe)}}
+	{{ form_label(form.date_naissance, "Date de Naissance")}}
+	{{ form_widget(form.date_naissance)}}
+	{{ form_label(form.niveau, "Niveau")}}
+	{{ form_widget(form.niveau)}}
+	</div>
+
+	{{ form_widget(form) }}
+	<button type="submit">Envoyer</button>
+</form>

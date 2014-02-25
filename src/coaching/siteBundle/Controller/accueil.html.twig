@@ -1,0 +1,19 @@
+<html>
+{% block stylesheets %}
+<link rel="stylesheet" href="
+	{{asset("bundles/coaching/css/style.css")}}" type="text/css" />
+{% endblock %}	
+<script src="{{asset('bundles/coaching/script/script.js')}}"></script>
+<body>
+	<h1>COACHING EXPRESS</h1>
+
+	<section id="espace_sportif">
+		<a href="{{path('sportif')}}">Espace Sportif</a>
+		<a href="{{path( 'fos_user_registration_register') }}">Inscription Sportif</a>
+	</section>
+	<section id="espace_coach">
+		<a href="{{path('coach')}}">Espace Coach</a>
+	</section>
+
+</body>
+</html>
