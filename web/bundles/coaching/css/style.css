@@ -133,6 +133,7 @@ button
 	margin:0  auto;
 	padding: 5px;
 	background-color: #51ADA6;
+	box-shadow: 5px 5px 5px black;
 }
 
 .navigation:hover
