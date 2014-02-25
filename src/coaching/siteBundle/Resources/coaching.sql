@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Mar 25 Février 2014 à 09:40
+-- Généré le: Mar 25 Février 2014 à 12:20
 -- Version du serveur: 5.5.34-0ubuntu0.13.04.1
 -- Version de PHP: 5.4.9-4ubuntu2.3
 
@@ -69,7 +69,14 @@ CREATE TABLE IF NOT EXISTS `Sportif` (
   UNIQUE KEY `UNIQ_1D317D11A76ED395` (`user_id`),
   UNIQUE KEY `UNIQ_1D317D11BEFD98D1` (`training_id`),
   UNIQUE KEY `UNIQ_1D317D113C105691` (`coach_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+
+--
+-- Contenu de la table `Sportif`
+--
+
+INSERT INTO `Sportif` (`id`, `user_id`, `training_id`, `coach_id`, `taille`, `poids`, `sexe`, `date_naissance`, `niveau`) VALUES
+(1, 2, NULL, NULL, 171, 85, 1, '2009-01-01', 'débutant');
 
 -- --------------------------------------------------------
 
@@ -125,12 +132,19 @@ CREATE TABLE IF NOT EXISTS `User` (
   `roles` longtext COLLATE utf8_unicode_ci NOT NULL COMMENT '(DC2Type:array)',
   `credentials_expired` tinyint(1) NOT NULL,
   `credentials_expire_at` datetime DEFAULT NULL,
-  `nom` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
-  `prenom` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
+  `nom` varchar(128) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `prenom` varchar(128) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_2DA1797792FC23A8` (`username_canonical`),
   UNIQUE KEY `UNIQ_2DA17977A0D96FBF` (`email_canonical`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+
+--
+-- Contenu de la table `User`
+--
+
+INSERT INTO `User` (`id`, `username`, `username_canonical`, `email`, `email_canonical`, `enabled`, `salt`, `password`, `last_login`, `locked`, `expired`, `expires_at`, `confirmation_token`, `password_requested_at`, `roles`, `credentials_expired`, `credentials_expire_at`, `nom`, `prenom`) VALUES
+(2, 'roland', 'roland', 'jane@doe.fr', 'jane@doe.fr', 1, 'd74gfmginy0wwgc00wcs0k0wsco0ckg', 'E6X6Uk55eWGSI9Ms4pXqbbzJ9cOA9BzPSOU+jdvCgEUdP4ojRpkFFJtG7oi+scHqrT+GpsrJYAUZDKqlDG5OiQ==', '2014-02-25 11:52:22', 0, 0, NULL, NULL, NULL, 'a:0:{}', 0, NULL, NULL, NULL);
 
 --
 -- Contraintes pour les tables exportées
