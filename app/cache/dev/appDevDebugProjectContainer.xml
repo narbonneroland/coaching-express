@@ -18,6 +18,7 @@
       <parameter key="SensioFrameworkExtraBundle">Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle</parameter>
       <parameter key="FOSUserBundle">FOS\UserBundle\FOSUserBundle</parameter>
       <parameter key="coachingBundle">coaching\siteBundle\coachingBundle</parameter>
+      <parameter key="coachingtwitterBundle">coaching\twitterBundle\coachingtwitterBundle</parameter>
       <parameter key="AcmeDemoBundle">Acme\DemoBundle\AcmeDemoBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
@@ -1733,7 +1734,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>530b51a78d390</argument>
+            <argument>530c6332af136</argument>
           </service>
         </argument>
       </argument>
@@ -2123,7 +2124,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>530b51a78d390</argument>
+            <argument>530c6332af136</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
           </service>
         </argument>
@@ -2511,6 +2512,7 @@
             <argument type="collection">
               <argument key="FOSUserBundle">FOS\UserBundle\Entity</argument>
               <argument key="coachingBundle">coaching\siteBundle\Entity</argument>
+              <argument key="coachingtwitterBundle">coaching\twitterBundle\Entity</argument>
             </argument>
           </call>
           <call method="setMetadataCacheImpl">
@@ -2562,10 +2564,23 @@
                       <argument type="service" id="annotation_reader"/>
                       <argument type="collection">
                         <argument>/var/www/coaching/src/coaching/siteBundle/Entity</argument>
+                        <argument>/var/www/coaching/src/coaching/twitterBundle/Entity</argument>
                       </argument>
                     </service>
                   </argument>
                   <argument>coaching\siteBundle\Entity</argument>
+                </call>
+                <call method="addDriver">
+                  <argument type="service">
+                    <service class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
+                      <argument type="service" id="annotation_reader"/>
+                      <argument type="collection">
+                        <argument>/var/www/coaching/src/coaching/siteBundle/Entity</argument>
+                        <argument>/var/www/coaching/src/coaching/twitterBundle/Entity</argument>
+                      </argument>
+                    </service>
+                  </argument>
+                  <argument>coaching\twitterBundle\Entity</argument>
                 </call>
                 <call method="addDriver">
                   <argument type="service">
@@ -3058,6 +3073,10 @@
       <call method="addPath">
         <argument>/var/www/coaching/src/coaching/siteBundle/Resources/views</argument>
         <argument>coaching</argument>
+      </call>
+      <call method="addPath">
+        <argument>/var/www/coaching/src/coaching/twitterBundle/Resources/views</argument>
+        <argument>coachingtwitter</argument>
       </call>
       <call method="addPath">
         <argument>/var/www/coaching/src/Acme/DemoBundle/Resources/views</argument>
