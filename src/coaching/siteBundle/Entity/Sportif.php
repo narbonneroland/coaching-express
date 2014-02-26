@@ -152,7 +152,12 @@ class Sportif
      */
     public function getSexe()
     {
-        return $this->sexe;
+        if($this->sexe==0)
+            $genre="Féminin";
+        else
+            $genre="Masculin";
+
+        return $genre;
     }
 
     /**
@@ -206,5 +211,21 @@ class Sportif
         $this->user=$id;
         return $this;
     }
+
+    public function getUser()
+    {
+        return $this;
+    }
+
+    public function setTraining($training)
+    {
+        $this->training=$training;
+        return $this;
+    }
     
+    public function getTraining()
+    {
+        return $this;
+    }
+
 }

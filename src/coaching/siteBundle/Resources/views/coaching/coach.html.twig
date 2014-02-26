@@ -2,6 +2,24 @@
 {% extends "::layout.html.twig" %}
 {% block body %}
 	<h2>Espace Coach</h2>
+	<form  method="post" {{ form_enctype(form) }}>
+		<div class="info_sportif">
+			<div class="physique">
+				{{ form_label(form.tarif, "Tarif")}}
+				{{ form_widget(form.tarif)}}
+				{{ form_label(form.tarif, "€/h")}}
+			</div>
+			<div class="sexe">
+				{{ form_label(form.sexe, "Sexe")}}
+				{{ form_widget(form.sexe)}}
+			</div>
+
+			{{ form_widget(form) }}
+			<div class="niveau">
+			<button type="submit">Envoyer</button>
+			</div>
+		</div>
+	</form>
 	<div class="navigation">
 		<a href="{{path('accueil')}}">Retour</a>
 	</div>

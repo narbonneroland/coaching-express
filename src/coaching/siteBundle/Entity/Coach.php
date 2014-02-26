@@ -106,4 +106,10 @@ class Coach
     {
         return $this->sexe;
     }
+
+    public function setUser($id)
+    {
+        $this->user=$id;
+        return $this;
+    }
 }
