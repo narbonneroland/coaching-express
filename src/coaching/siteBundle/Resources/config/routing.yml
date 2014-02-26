@@ -10,3 +10,9 @@ sportif:
 coach:
     pattern: /coach
     defaults: { _controller: coachingBundle:Coaching:coach }
+forum:
+    pattern: /forum
+    defaults: { _controller: coachingBundle:Coaching:forum }
+boutique:
+    pattern: /boutique
+    defaults: { _controller: coachingBundle:Coaching:boutique }

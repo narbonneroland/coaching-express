@@ -15,6 +15,11 @@ h1
 	padding-left: 50px;
 	font-family: 'Faster One', cursive;
 }
+h2
+{
+	font-family: 'Faster One', cursive;
+	text-align: center;
+}
 
 section
 {

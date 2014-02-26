@@ -66,4 +66,12 @@ class CoachingController extends Controller
     {
         return $this->render('coachingBundle:coaching:coach.html.twig', array());
     }
+    public function forumAction()
+    {
+        return $this->render('coachingBundle:coaching:forum.html.twig', array());
+    }
+    public function boutiqueAction()
+    {
+        return $this->render('coachingBundle:coaching:boutique.html.twig', array());
+    }
 }

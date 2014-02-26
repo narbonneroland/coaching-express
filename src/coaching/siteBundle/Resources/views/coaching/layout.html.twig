@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+{% block stylesheets %}
+<link href='http://fonts.googleapis.com/css?family=Faster+One' rel='stylesheet' type='text/css'>
+
+<link rel="stylesheet" href="
+	{{asset("bundles/coaching/css/style.css")}}" type="text/css" />
+
+{% endblock %}	
+<script src="{{asset('bundles/coaching/script/script.js')}}"></script>
+
+<body>
+	<div id="page">
+
+		<h1>COACHING EXPRESSS</h1>
+		{% block body %}{% endblock %}
+	</div>
+</body>
+</html>
