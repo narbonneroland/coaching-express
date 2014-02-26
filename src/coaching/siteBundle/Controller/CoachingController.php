@@ -20,47 +20,52 @@ class CoachingController extends Controller
     }
     public function sportifAction()
     {
-    	
-    	$doctrine=$this->getDoctrine();
-    	
-    	$manager=$doctrine->getManager();
-    
-    	$repository=$manager->getRepository("coachingBundle:User");
-    	
-    	$user=$repository->find('2');
-    	
-    	
-    	$sportif=new Sportif();
-    	
-    	$formBuilder = $this->createFormBuilder($sportif);
-    	
-    	$formBuilder
-    		->add('taille','integer')
-    		->add('poids','number')
-    		->add('sexe','choice', array('choices' =>array('0'=>'Masculin','1'=>'Féminin'),'expanded' => 'true','data' => 0))
-    		->add('date_naissance','date',array('format'=>'d/M/y'))
-    		->add('niveau','text');
+    	$user = $this->container->get('security.context')->getToken()->getUser();
+        
+        $doctrine=$this->getDoctrine();
+        $manager=$doctrine->getManager();
+        $repository=$manager->getRepository("coachingBundle:User");
+        $temp=$repository->find($user->getId());
+        
+       /* if(isset($user->getId())
+        {*/
 
-    	$form = $formBuilder->getForm();
+            
+        	$sportif=new Sportif();
+        	
+        	$formBuilder = $this->createFormBuilder($sportif);
+        	
+        	$formBuilder
+        		->add('taille','integer')
+        		->add('poids','number')
+        		->add('sexe','choice', array('choices' =>array('0'=>'Masculin','1'=>'Féminin'),'expanded' => 'true','data' => 0))
+        		->add('date_naissance','date',array('format'=>'d/M/y'))
+        		->add('niveau','text');
 
-    	$request = $this->get('request');
+        	$form = $formBuilder->getForm();
 
-    	if ($request->getMethod() == 'POST')
-         {
-            $form->bind($request); 
+        	$request = $this->get('request');
 
-            if ($form->isValid())
-            {
-            	$sportif->setUser($user);
-                $em = $this->getDoctrine()->getManager();
-                $em->persist($sportif);
-                $em->flush(); 
+        	if ($request->getMethod() == 'POST')
+             {
+                $form->bind($request); 
 
-               
-            }
-         }
+                if ($form->isValid())
+                {
+                	$sportif->setUser($temp);
+                    $em = $this->getDoctrine()->getManager();
+                    $em->persist($sportif);
+                    $em->flush(); 
 
-        return $this->render('coachingBundle:coaching:sportif.html.twig', array('form'=> $form->createView()));
+                   
+                }
+             }
+          return $this->render('coachingBundle:coaching:sportif.html.twig', array('form'=> $form->createView()));
+        /*}
+        else
+        {
+           return $this->render('coachingBundle:coaching:wrong.html.twig'); 
+        }*/
     }
     public function coachAction()
     {
