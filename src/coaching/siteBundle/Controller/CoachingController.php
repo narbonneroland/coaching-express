@@ -46,7 +46,7 @@ class CoachingController extends Controller
         		->add('taille','integer')
         		->add('poids','number')
         		->add('sexe','choice', array('choices' =>array('0'=>'Masculin','1'=>'Féminin'),'expanded' => 'true','data' => '0'))
-        		->add('date_naissance','date',array('format'=>'d/M/y'))
+        		->add('date_naissance','birthday',array('format'=>'d/M/y'))
         		->add('niveau','choice', array('choices' =>array('Débutant'=>'Debutant','Intermédiaire'=>'Intermediaire', 'Avancé'=>'Avancé','Professionnel'=>'Professionnel'),'expanded'=>'false'))
                 ->add('training','entity',array('class'=>'coaching\siteBundle\Entity\Training','property'=>'type'));
 
@@ -138,5 +138,69 @@ class CoachingController extends Controller
     public function boutiqueAction()
     {
         return $this->render('coachingBundle:coaching:boutique.html.twig', array());
+    }
+
+    public function sportifModifAction()
+    {
+        $user = $this->container->get('security.context')->getToken()->getUser();
+
+        $doctrine=$this->getDoctrine();
+        $manager=$doctrine->getManager();
+        $repository=$manager->getRepository("coachingBundle:User");
+        
+            
+
+        
+        
+            $temp=$repository->find($user->getId());
+            $repository=$manager->getRepository("coachingBundle:Sportif");
+            $deja=$repository->findByuser($user->getId());
+           // echo "<pre>".print_r($deja,true)."</pre>";
+            //$sportif=new Sportif();
+            
+            $formBuilder = $this->createFormBuilder($deja);
+            if($deja[0]->getSexe()=='Masculin')
+                $sexe=1;
+            else
+                $sexe=0;
+            echo $deja[0]->getDateNaissance()->format('d/M/Y');
+            $formBuilder
+                ->add('taille','integer',array('data' => $deja[0]->getTaille()))
+                ->add('poids','number',array('data' => $deja[0]->getPoids()))
+                ->add('sexe','choice', array('choices' =>array('0'=>'Masculin','1'=>'Féminin'),'expanded' => 'true','data' => $sexe))
+                ->add('date_naissance','birthday',array('format'=>'d/M/y'),array('data'=>$deja[0]->getDateNaissance()))
+                ->add('niveau','choice', array('choices' =>array('Débutant'=>'Debutant','Intermédiaire'=>'Intermediaire', 'Avancé'=>'Avancé','Professionnel'=>'Professionnel'),'expanded'=>'false','data'=> $deja[0]->getNiveau()))
+                ->add('training','entity',array('class'=>'coaching\siteBundle\Entity\Training','property'=> 'type','preferred_choices'=>array($deja[0]->getTraining())));
+
+            $form = $formBuilder->getForm();
+
+            $request = $this->get('request');
+
+            if ($request->getMethod() == 'POST')
+             {
+                $form->bind($request); 
+
+                if ($form->isValid())
+                {
+                    $deja[0]->setUser($temp);
+                    //echo "<pre>".print_r($deja[0],true)."</pre>";
+                    $em = $this->getDoctrine()->getManager();
+                    $em->persist($deja[0]);
+                    $em->flush(); 
+
+                   
+                }
+
+                
+             }
+            
+        return $this->render('coachingBundle:coaching:sportif_modif.html.twig', array('form'=> $form->createView()));
+
+       
+    }
+
+    public function sportifSupprAction()
+    {
+        return $this->render('coachingBundle:coaching:sportif_suppr.html.twig', array());
     }
 }

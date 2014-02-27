@@ -214,7 +214,7 @@ class Sportif
 
     public function getUser()
     {
-        return $this;
+        return $this->user;
     }
 
     public function setTraining($training)
@@ -225,7 +225,7 @@ class Sportif
     
     public function getTraining()
     {
-        return $this;
+        return $this->training;
     }
 
 }

@@ -1,0 +1,38 @@
+{# coaching/app/resources/views/layout.html.twig #}
+{% extends "::layout.html.twig" %}
+{% block body %}
+	<h2>Espace Sportif</h2>
+	<form  method="post" {{ form_enctype(form) }}>
+		<div class="info_sportif">
+			<div class="physique">
+				{{ form_label(form.taille, "Taille")}}
+				{{ form_widget(form.taille)}}
+				{{ form_label(form.taille, "cm")}}
+				{{ form_label(form.poids, "Poids")}}
+				{{ form_widget(form.poids)}}
+				{{ form_label(form.poids, "cm")}}
+			</div>
+			{#<div class="sexe">
+				<label>Sexe</label>
+				{{ sportif.sexe }}
+			</div>#}
+			<div class="naissance">
+				{{ form_label(form.taille, "Date de Naissance")}}
+				{{ form_widget(form.date_naissance)}}
+			</div>
+			<div class="niveau">
+				{{ form_label(form.niveau, "Niveau")}}
+				{{ form_widget(form.niveau)}}
+				{{ form_label(form.training, "Entrainement")}}
+				{{ form_widget(form.training)}}
+				
+			</div>
+			
+			{{ form_widget(form) }}
+			<button type="submit">Envoyer</button>
+		</div>
+	</form>
+	<div class="navigation">
+	<a href="{{path('accueil')}}">Retour</a>
+	</div>
+{% endblock %}

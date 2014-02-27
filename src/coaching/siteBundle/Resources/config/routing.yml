@@ -16,3 +16,9 @@ forum:
 boutique:
     pattern: /boutique
     defaults: { _controller: coachingBundle:Coaching:boutique }
+sportif_modif:
+    pattern: /sportif_modif
+    defaults: { _controller: coachingBundle:Coaching:sportifModif }
+sportif_suppr:
+    pattern: /sportif_suppr
+    defaults: { _controller: coachingBundle:Coaching:sportifSuppr }
